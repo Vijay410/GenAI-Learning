@@ -1,0 +1,18 @@
+[project]
+name = "cropwiseai"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Vijay410",email = "50883697+Vijay410@users.noreply.github.com"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pymupdf (>=1.28.2,<2.0.0)",
+    "fitz (>=0.0.1.dev2,<0.0.2)",
+    "frontend (>=0.0.3,<0.0.4)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

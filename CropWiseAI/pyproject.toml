@@ -8,9 +8,18 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "pymupdf (>=1.28.2,<2.0.0)",
-    "fitz (>=0.0.1.dev2,<0.0.2)",
     "frontend (>=0.0.3,<0.0.4)"
 ]
+
+[dependency-groups]
+dev = ["pytest (>=8.0)"]
+
+[tool.poetry]
+packages = [{ include = "app" }]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["app/tests"]
 
 
 [build-system]

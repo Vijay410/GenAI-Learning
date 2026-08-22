@@ -1,0 +1,38 @@
+services:
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: cropwise-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: cropwise
+      POSTGRES_USER: cropwise
+      POSTGRES_PASSWORD: cropwise
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: cropwise-pgadmin
+    restart: unless-stopped
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@cropwise.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "False"
+
+    ports:
+      - "5050:80"
+
+    depends_on:
+      - postgres
+
+
+volumes:
+  postgres_data:
